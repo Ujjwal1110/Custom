@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text"  id="name" placeholder="Name"/>
+    <input type="number"  id="price" placeholder="Price"/>
+     <select id="category">
+         <option value="electronics">Electronics</option>
+         <option value="furniture">Furniture</option>
+         <option value="books">Books</option>
+     </select>
+    <select id="gender" value="Gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+    </select>
+    <input type="text" id="image" placeholder="image"/>
+    <input type="text" id="sold" placeholder="Sold"/>
+    <input type="submit" value="Please submit"/>
+</body>
+</html>
+<script>
+document.querySelector("#form").addEventListener("submit",myfunction)
+var arr = JSON.parse(localStorage.getItem("products"))||[];
+ 
+function myfunction(){
+    event.preventDefault()
+   
+     let name= form.name.value;
+     let category= form.category.value;
+     let image= form.image.value;
+     let price= form.price.value;
+     let gender= form.gender.value;
+     let sold= form.sold.value;
+   
+    let result = new product(name,category,image,price,gender,sold);
+   arr.push(result)
+    console.log(arr)
+    localStorage.setItem("produts",JSON.stringify(arr))
+ 
+   
+}
+function product(name,category,image,price,gender,sold){
+    this.name=name;
+    this.category=category;
+    this.image=image;
+    this.price = price;
+    this.gender = gender;
+    this.sold=sold;
+
+</script>
+
+
+
+
+
